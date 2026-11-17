@@ -1,0 +1,127 @@
+:root {
+  --azul: #0c1445;
+  --azul-claro: #2f4bd0;
+  --vermelho: #d62839;
+  --verde: #1d8a4b;
+  --cinza: #5b6270;
+  --borda: #d9dce3;
+  --fundo: #f3f5f9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--fundo);
+  color: #1b1f2a;
+}
+
+.topo {
+  background: var(--azul);
+  color: #fff;
+  padding: 16px 24px 0;
+}
+.topo h1 { margin: 0 0 12px; font-size: 1.4rem; }
+.topo nav { display: flex; gap: 4px; flex-wrap: wrap; }
+
+.aba {
+  background: transparent;
+  color: #c9d0f5;
+  border: 0;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-radius: 8px 8px 0 0;
+}
+.aba:hover { background: rgba(255, 255, 255, 0.1); }
+.aba-ativa { background: var(--fundo); color: var(--azul); font-weight: 600; }
+
+.conteudo { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+
+.cartao {
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+.cartao h2 { margin: 0 0 16px; font-size: 1.15rem; color: var(--azul); }
+.cartao h3 { margin: 24px 0 10px; font-size: 1rem; color: var(--azul); }
+.cartao-cabecalho { display: flex; justify-content: space-between; align-items: center; }
+
+.grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0 24px; }
+
+.campo { display: flex; flex-direction: column; margin-bottom: 16px; }
+.campo label { font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; }
+.obrigatorio { color: var(--vermelho); }
+
+input, select, textarea {
+  font: inherit;
+  padding: 9px 11px;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  background: #fff;
+  width: 100%;
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--azul-claro); outline-offset: -1px; }
+input[readonly], textarea[readonly] { background: #eef0f5; color: var(--cinza); }
+textarea { resize: vertical; }
+
+.campo-erro input, .campo-erro select, .campo-erro textarea { border-color: var(--vermelho); }
+.msg-erro { color: var(--vermelho); font-size: 0.8rem; margin-top: 5px; }
+.espaco-topo { margin-top: 8px; }
+
+.acoes { display: flex; gap: 12px; margin-top: 8px; }
+
+.btn {
+  font: inherit;
+  border: 1px solid var(--borda);
+  background: #fff;
+  padding: 9px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn:hover { background: #f0f2f8; }
+.btn:disabled { opacity: 0.6; cursor: wait; }
+.btn-primario { background: var(--azul-claro); border-color: var(--azul-claro); color: #fff; font-weight: 600; }
+.btn-primario:hover { background: #2640b0; }
+.btn-secundario { color: var(--cinza); }
+.btn-pequeno { padding: 5px 12px; font-size: 0.85rem; }
+.btn-perigo { color: var(--vermelho); border-color: #f0b8bf; }
+.btn-perigo:hover { background: #fdecee; }
+
+.aviso {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.aviso button { background: none; border: 0; font-size: 1.3rem; cursor: pointer; color: inherit; }
+.aviso-sucesso { background: #e4f6ec; color: var(--verde); border: 1px solid #b7e2c9; }
+.aviso-erro { background: #fdecee; color: var(--vermelho); border: 1px solid #f4c3c9; }
+
+.tabela-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+th { text-align: left; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--cinza); }
+th, td { padding: 10px 12px; border-bottom: 1px solid var(--borda); vertical-align: middle; }
+.col-acoes { white-space: nowrap; text-align: right; }
+.col-acoes .btn + .btn { margin-left: 6px; }
+.sub { color: var(--cinza); font-size: 0.82rem; max-width: 320px; }
+.vazio { color: var(--cinza); font-style: italic; }
+
+.miniatura { max-width: 120px; max-height: 120px; border-radius: 6px; border: 1px solid var(--borda); }
+.miniatura-tabela { width: 44px; height: 44px; object-fit: cover; border-radius: 6px; }
+
+.detalhes { background: #fafbfd; border: 1px solid var(--borda); border-radius: 8px; padding: 16px 16px 0; }
+.linha-associar { display: flex; gap: 16px; align-items: flex-start; }
+.linha-associar .campo { flex: 1; }
+.linha-associar .btn { margin-top: 26px; }
+
+@media (max-width: 600px) {
+  .linha-associar { flex-direction: column; }
+  .linha-associar .btn { margin-top: 0; }
+}
